@@ -27,7 +27,7 @@ class WordRelate:
         # We'll store all our results at a collection based level i.e.
         # we are going to access every structure within the class
         # using the collection id as keys.
-        # TODO
+        #
         # Initialize the values (empty dics) for
         # - voc
         # - ivoc
@@ -59,13 +59,13 @@ class WordRelate:
         :return: processed line
         """
         # -----------------------------------
-        # TODO
+        #
         # complete the parsers, currently, each word
         # line is output as it is.
         # (10 points)
         # -----------------------------------
 
-        #Esto ya debe recibir la línea en lower
+        # Esto ya debe recibir la línea en lower
         return re.sub(f"[{string.punctuation}]+", "", line).split()
 
 
@@ -84,7 +84,7 @@ class WordRelate:
             - self.ivoc: a series containing the vocabulary: {index: word} (this will be handy for word retrieval)
         """
         # -----------------------------------
-        # TODO
+        #
         # Parse the texts in the collection and
         # build a series with the top_freq_words.
         # Sort the index of voc based on the words.
@@ -121,9 +121,9 @@ class WordRelate:
             other_top_words[sort_orders[i][0]] = i
 
         # Make order monotonic to improve performance.
-        self.voc[collection_id] =  other_top_words # Your code goes here
+        self.voc[collection_id] = other_top_words
         # Get inverse index for word vocs
-        self.ivoc[collection_id] = top_words # Your code goes here
+        self.ivoc[collection_id] = top_words
         print(f'Monotonic index:{self.voc[collection_id].index.is_monotonic}')
 
 
@@ -151,7 +151,7 @@ class WordRelate:
 
         for text in self.collections[collection_id]:
             # -----------------------------------
-            # TODO
+            #
             # For each word in text, build a window
             # of size 2*ws. Containing the vocabulary indexes of ws words prior to the word
             # of interest and ws words after. For example
@@ -218,7 +218,7 @@ class WordRelate:
         In this section we apply ppmi transformation to vrm
         """
         # -----------------------------------
-        # TODO
+        #
         # Compute the matrix of expected counts to
         # update vrm.
         # expected_i_j = (row_sum_i*col_sum_j)/tot_sum
@@ -226,6 +226,16 @@ class WordRelate:
         # -----------------------------------
 
         # Your code goes here (~ 1 - 4 lines)
+        size = len(self.voc[collection_id])
+        expected = np.zeros((size, size))
+        matriz = self.vrm[collection_id]
+        total = sum(sum(matriz))
+
+        for i in range(size):
+            for j in range(size):
+                suma_i = sum(matriz[i])
+                suma_j = sum(matriz[:, j])
+                expected[i, j] = (suma_i * suma_j)/total
 
         with np.errstate(divide='ignore'):
             log_vals = np.log(self.vrm[collection_id]/expected)
@@ -318,7 +328,7 @@ class WordRelate:
                     # Read lines and process them. (notice we are removing empty lines)
                     lines = g.readlines()
             # -----------------------------------
-            # TODO
+            #
             # - Call proc line on each line of input
             # - Make sure to add 'START' and 'END' tokens to the start and end of each sentence.
             # - Preserve only non empty lines.

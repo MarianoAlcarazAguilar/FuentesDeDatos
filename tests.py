@@ -1,6 +1,7 @@
 import re
 import string
 import numpy as np
+import pandas as pd
 
 '''
 This function parses each input line:
@@ -23,7 +24,7 @@ def test(text):
     return re.sub(f"[{string.punctuation}]+", "", text).split()
 
 
-with open('practice_text.txt') as f:
+with open('main_text000.txt') as f:
     # Esto devuelve una lista de Strings
     lines = f.readlines()
 
@@ -52,7 +53,7 @@ for i in range(minSize):
 
 # Esta es la lista de las palabras sobre las que vamos a trabajar
 words_list = list(other_top_words.keys())
-
+print(len(other_top_words))
 
 # Ahora necesitamos el texto para hacerle el análisis
 # solo queremos las palabras dentro de las words_list
@@ -64,7 +65,7 @@ for word in words_list:
     dict_ceros[word] = np.zeros(len(words_list))
 
 # Nos movemos sobre cada renglón
-window_size = 4
+window_size = 1/2
 for linea in lines:
 
     # Nos movemos sobre las palabras de el renglón
@@ -74,7 +75,8 @@ for linea in lines:
         if linea[i] in words_list:
 
             # Buscamos 4 letras a la derecha
-            for k in range(2 * window_size):
+
+            for k in range(int(2*window_size)):
 
                 # j es la palabra en la lista del lado derecho
                 j = k + i + 1
@@ -102,3 +104,23 @@ for word in dict_ceros.keys():
     matriz = np.vstack((matriz, dict_ceros[word]))
 
 matriz = np.delete(matriz, 0, axis=0)
+
+# Tenemos que hacer una matriz que se llame expected
+# en la entrada ij tiene un promedio de la siguiente forma:
+# suma de la fila i * suma de la columna j / (suma de la fila i + suma de la columna j)
+
+# Row, column
+size = len(words_list)
+expected = np.zeros((size, size))
+total = sum(sum(matriz))
+for i in range(size):
+    for j in range(size):
+        suma_i = sum(matriz[i])
+        suma_j = sum(matriz[:, j])
+        expected[i,j] = (suma_i * suma_j)/total
+
+with np.errstate(divide='ignore'):
+    log_vals = np.log(matriz / expected)
+matriz = np.maximum(log_vals, 0)
+matriz = pd.DataFrame(matriz)
+print(matriz)
