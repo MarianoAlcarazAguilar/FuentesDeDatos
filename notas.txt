@@ -18,3 +18,39 @@ Equivalencias para traducción
 libro == s.collection[collection_id][book_index] --> Esto es una lista con renglones
 collection[collection_id] --> lista con los textos
 other_top_words == self.voc[collection_id]
+
+Orden de ejecución
+Llamar a read_collection
+
+
+
+Atributos y variables de interés
+home_dir        .
+data_path       ./data/text_comp/texts
+fig_path        ./figs
+collection_path ./data/text_comp/texts/collection_id  --> Aquí están los libros
+file_path       ./data/text_comp/texts/collection_id/file_name --> Este ya es un libro
+
+
+
+Métodos
+init            Empieza el objeto
+                    Crea todos los diccionarios e imprime las collections que encontró
+proc_line       Es un método estático
+                    Recibe lineas y las limpia. Regresa la lista de las palabras
+get_voc         Crea voc y ivoc
+                    Necesita collections
+read_collection Crea collections
+                    Necesita proc_line (es estático)
+dist_rep        Crea vrm
+                    Necesita voc, collections
+ppmi_reweight   Modifica vrm
+                    Necesita voc, vrm
+dim_redux       Crea reduced_vrm
+                    Necesita vrm
+plot_reps       Crea las gráficas en figs_path
+                    Necesita collections, reduced_vrm, ivoc
+make_bulk_co    Crea BULK collection
+                    Necesita collections
+get_word_rel    Regresa la correlación
+                    Necesita voc

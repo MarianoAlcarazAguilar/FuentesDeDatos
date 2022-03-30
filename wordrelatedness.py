@@ -1,4 +1,4 @@
-#! PATH/TO/ENVIRONMENT/BIN
+#! /home/user/anaconda3/bin/python
 
 import os
 import re
@@ -20,6 +20,7 @@ class WordRelate:
     """
 
     def __init__(self, home_dir='.'):
+
         self.home_dir = home_dir
         self.data_path = os.path.join(self.home_dir, 'data', 'text_comp', 'texts')
         self.fig_path = os.path.join(self.home_dir, 'figs')
@@ -45,7 +46,14 @@ class WordRelate:
         self.reduced_vrm = {}
 
         print(f"Files found in storage: \n {os.listdir(self.data_path)}")
+        collections_found = os.listdir(self.data_path)
+        for folder in collections_found:
+            self.collections[folder] = None
+        print(self.collections)
 
+
+    def print_collections(self):
+        print(self.collections)
 
     @staticmethod
     def proc_line(line):
@@ -67,8 +75,6 @@ class WordRelate:
 
         # Esto ya debe recibir la línea en lower
         return re.sub(f"[{string.punctuation}]+", "", line).split()
-
-
 
 
     def get_voc(self, collection_id, sw, top_freq_words=2000):
@@ -93,7 +99,9 @@ class WordRelate:
         # -----------------------------------
 
         # Your code goes here (~ 2 lines)
-        self.read_collection(collection_id)
+        # self.read_collection(collection_id)
+
+
         # Primero buscamos todas las palabras y contamos cuantas veces aparecen
         # Luego ordenamos por número de apraciones
         # Luego les damos el indice por orden de apraciones
@@ -211,8 +219,6 @@ class WordRelate:
             self.vrm[collection_id] = matriz
 
 
-
-
     def ppmi_reweight(self, collection_id):
         """
         In this section we apply ppmi transformation to vrm
@@ -313,12 +319,14 @@ class WordRelate:
         print(f'Found {len(predicted_sim)} words to relate in voc. Pearson Correlation: {correlation}')
         return correlation
 
+
     def read_collection(self, collection_id):
         collection_path = os.path.join(self.data_path, collection_id)
         # Read each file in collection
         texts = []
         for file in os.listdir(collection_path):
-            file_path = os.path.join(collection_path, file, 'main_text.txt')
+            # Le voy a quitar 'main_text.txt'
+            file_path = os.path.join(collection_path, file)
             # Take care of gzipped files
             if re.match(r'^gzip', magic.from_file(file_path)):
                 with gzip.open(file_path, 'rb') as fa:
@@ -353,19 +361,15 @@ if __name__ == '__main__':
 
     # Parse arguments
     parser = ArgumentParser()
-    print(parser)
-    parser.add_argument('--collection',
-                        choices=collections)
+    parser.add_argument('--collection', choices=collections)
     args = parser.parse_args()
     # Read stopwords
     with open('./stopwords.txt') as f:
         stopwords = f.read().split('\n')
     # Instantiate WordRelate object
-    print(stopwords)
     wc = WordRelate()
     # Read collection argument
     collection = args.collection
-
     # -----------------------------------
     # TODO
     # -----------------------------------
@@ -383,3 +387,7 @@ if __name__ == '__main__':
     # -----------------------------------
 
     # Your code goes here (~ 7 lines)
+
+    # Read collection 130
+
+
