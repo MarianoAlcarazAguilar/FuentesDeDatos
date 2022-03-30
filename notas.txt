@@ -1,0 +1,8 @@
+sw              lista de stopwords
+test            función que regresa una lista con las palabras de un renglón
+lines           lista con lista de renglones del texto
+dict            diccionario {'palabra':total de veces}
+top_words       diccionario ordenado por mayor número de veces {índice:'palabra'}
+other_top_words diccionario ordenado por mayor número de veces {'palabra':índice}
+words_list      lista con las n palabras más frecuentes
+dict_ceros      diccionario con las palabras representadas vectorialmente {'palabra':np.array()}

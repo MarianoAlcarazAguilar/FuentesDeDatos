@@ -1,6 +1,7 @@
 import re
 import string
 import numpy as np
+
 '''
 This function parses each input line:
 - sets every word into lowercase
@@ -102,6 +103,5 @@ for word in dict_ceros.keys():
     matriz = np.vstack((matriz, dict_ceros[word]))
 
 matriz = np.delete(matriz, 0, axis=0)
-# esto es una prueba para ver que onda
-# estoy cambiando esto
+
 
