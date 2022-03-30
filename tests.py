@@ -2,6 +2,7 @@ import re
 import string
 import numpy as np
 import pandas as pd
+import os
 
 '''
 This function parses each input line:
@@ -123,4 +124,6 @@ with np.errstate(divide='ignore'):
     log_vals = np.log(matriz / expected)
 matriz = np.maximum(log_vals, 0)
 matriz = pd.DataFrame(matriz)
-print(matriz)
+
+print(os.listdir("/home/user/Documents/project_1/text_comp"))
+print(os.path.join("hola"))

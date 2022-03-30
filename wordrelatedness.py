@@ -187,7 +187,7 @@ class WordRelate:
                             j = k + i + 1
 
                             # m es el índice para las palabras del lado izquierdo
-                            m = i -k -1
+                            m = i - k - 1
 
                             if m >= 0:
                                 if linea[m] in words_list:
@@ -298,7 +298,7 @@ class WordRelate:
         for index, row in wr.iterrows():
             w1 = row.word1
             w2 = row.word2
-            s  = row.score
+            s = row.score
             # Check if words are in voc
             annotated_sim = []
             predicted_sim = []
@@ -348,16 +348,20 @@ class WordRelate:
 
 if __name__ == '__main__':
     # Check available collections
+    # Esto ya funciona
     collections = os.listdir(os.path.join('data', 'text_comp', 'texts'))
+
     # Parse arguments
     parser = ArgumentParser()
+    print(parser)
     parser.add_argument('--collection',
                         choices=collections)
     args = parser.parse_args()
     # Read stopwords
-    with open('./data/stop_words/stopwords.txt') as f:
+    with open('./stopwords.txt') as f:
         stopwords = f.read().split('\n')
     # Instantiate WordRelate object
+    print(stopwords)
     wc = WordRelate()
     # Read collection argument
     collection = args.collection
