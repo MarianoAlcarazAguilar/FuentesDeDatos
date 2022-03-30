@@ -49,8 +49,9 @@ class WordRelate:
         collections_found = os.listdir(self.data_path)
         for folder in collections_found:
             self.collections[folder] = None
-        print(self.collections)
 
+    def get_collections(self):
+        return self.collections
 
     def print_collections(self):
         print(self.collections)
@@ -132,7 +133,7 @@ class WordRelate:
         self.voc[collection_id] = other_top_words
         # Get inverse index for word vocs
         self.ivoc[collection_id] = top_words
-        print(f'Monotonic index:{self.voc[collection_id].index.is_monotonic}')
+        # print(f'Monotonic index:{self.voc[collection_id].index.is_monotonic}')
 
 
     def dist_rep(self, collection_id, ws=4):
@@ -271,14 +272,15 @@ class WordRelate:
             os.mkdir(self.fig_path)
 
         for i, collection in enumerate(self.collections.keys()):
-            fig, ax = plt.subplots(figsize=(12, 10))
-            x = self.reduced_vrm[collection][:, 0]
-            y = self.reduced_vrm[collection][:, 1]
-            ax.scatter(x, y)
-            for i, txt in enumerate(self.ivoc[collection]):
-                ax.annotate(txt, (x[i], y[i]))
-            print(f'saving figure {collection}')
-            fig.savefig(os.path.join(self.fig_path, f'{collection}.png'))
+            if self.collections[collection] != None:
+                fig, ax = plt.subplots(figsize=(12, 10))
+                x = self.reduced_vrm[collection][:, 0]
+                y = self.reduced_vrm[collection][:, 1]
+                ax.scatter(x, y)
+                for i, txt in enumerate(self.voc[collection]):
+                    ax.annotate(txt, (x[i], y[i]))
+                print(f'saving figure {collection}')
+                fig.savefig(os.path.join(self.fig_path, f'{collection}.png'))
 
 
     def make_bulk_collections(self):
@@ -321,7 +323,7 @@ class WordRelate:
 
 
     def read_collection(self, collection_id):
-        collection_path = os.path.join(self.data_path, collection_id)
+        collection_path = f"{self.data_path}/{collection_id}"
         # Read each file in collection
         texts = []
         for file in os.listdir(collection_path):
@@ -344,7 +346,9 @@ class WordRelate:
             # -----------------------------------
 
             # Your code goes here (~ 1 - 3 lines)
-            lines = [re.sub(r"\n", "", x).lower() for x in lines]
+            # TODO esto no funciona cuando tiene un nombre raro el archivo
+            to_delete = "\n"
+            lines = [re.sub(rf"[{to_delete}]+", "", x).lower() for x in lines]
             lines = [f"START {x} END" for x in lines]
             lines = [self.proc_line(x) for x in lines if len(self.proc_line(x)) > 2]
             texts.append(lines)
@@ -389,5 +393,10 @@ if __name__ == '__main__':
     # Your code goes here (~ 7 lines)
 
     # Read collection 130
-
+    wc.read_collection(1)
+    wc.get_voc(collection_id=1, sw=stopwords)
+    wc.dist_rep(collection_id=1)
+    wc.ppmi_reweight(collection_id=1)
+    wc.dim_redux(collection_id=1)
+    wc.plot_reps()
 

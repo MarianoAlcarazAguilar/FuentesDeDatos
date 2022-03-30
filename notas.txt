@@ -41,7 +41,7 @@ proc_line       Es un método estático
 get_voc         Crea voc y ivoc
                     Necesita collections
 read_collection Crea collections
-                    Necesita proc_line (es estático)
+                    Necesita NADA
 dist_rep        Crea vrm
                     Necesita voc, collections
 ppmi_reweight   Modifica vrm
