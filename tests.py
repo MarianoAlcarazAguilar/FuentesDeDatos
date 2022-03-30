@@ -19,8 +19,8 @@ with open('stopwords.txt') as f:
 sw = [re.sub("\n", "", x) for x in sw]
 
 
-def test(linea):
-    return re.sub(f"[{string.punctuation}]+", "", linea).split()
+def test(text):
+    return re.sub(f"[{string.punctuation}]+", "", text).split()
 
 
 with open('practice_text.txt') as f:
@@ -62,7 +62,6 @@ dict_ceros = {}
 
 for word in words_list:
     dict_ceros[word] = np.zeros(len(words_list))
-    # dict_ceros[word] = [0 for x in range(len(words_list))]
 
 # Nos movemos sobre cada renglón
 window_size = 4
@@ -103,5 +102,3 @@ for word in dict_ceros.keys():
     matriz = np.vstack((matriz, dict_ceros[word]))
 
 matriz = np.delete(matriz, 0, axis=0)
-
-

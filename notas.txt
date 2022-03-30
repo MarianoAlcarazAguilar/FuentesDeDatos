@@ -4,15 +4,17 @@ lines           lista con lista de renglones del texto
 dict            diccionario {'palabra':total de veces}
 top_words       diccionario ordenado por mayor número de veces {índice:'palabra'}
 other_top_words diccionario ordenado por mayor número de veces {'palabra':índice}
-words_list      lista con las n palabras más frecuentes
+words_list      lista con las n palabras más frecuentes --> list(other_top_words.keys())
 dict_ceros      diccionario con las palabras representadas vectorialmente {'palabra':np.array()}
 
 
 s.voc           diccionario {collection_id: other_top_words}
 s.ivoc          diccionario {collection_id: top_words}
 s.collections   diccionario {collection_id: lista --> listas (cada una es un texto) --> listas (palabras en cada línea)}
-s.vrm           diccionario
+s.vrm           diccionario {collection_id: np.array() (esta es la matriz)}
 s.reduced_vrm   diccionario
 
 Equivalencias para traducción
 libro == s.collection[collection_id][book_index] --> Esto es una lista con renglones
+collection[collection_id] --> lista con los textos
+other_top_words == self.voc[collection_id]
