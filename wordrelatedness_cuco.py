@@ -148,7 +148,7 @@ class WordRelate:
         In this section we apply ppmi transformation to vrm
         """
         # -----------------------------------
-        #
+        # final change
         # Compute the matrix of expected counts to
         # update vrm.
         # expected_i_j = (row_sum_i*col_sum_j)/tot_sum
