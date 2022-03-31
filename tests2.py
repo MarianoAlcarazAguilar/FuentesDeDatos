@@ -1,7 +1,8 @@
 # Vamos a abrir el archivo y a limpiarlo
+import re
+import string
 
-with open("project_2/data/text_comp/texts/130/Austral English.txt") as f:
-    lines = f.readlines()
-
+text = "123 hola..."
+lines = re.sub(rf"([0-9]|[{string.punctuation}])", "", text)
 
 print(lines)
