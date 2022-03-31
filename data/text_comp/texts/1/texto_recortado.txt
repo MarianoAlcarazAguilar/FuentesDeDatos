@@ -1,0 +1,228 @@
+Project Gutenberg's A Dictionary of Austral English, by Edward Morris
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org
+
+
+Title: A Dictionary of Austral English
+
+Author: Edward Morris
+
+Release Date: February 3, 2009 [EBook #27977]
+
+Language: English
+
+
+*** START OF THIS PROJECT GUTENBERG EBOOK A DICTIONARY OF AUSTRAL ENGLISH ***
+
+
+
+
+Produced by Geoffrey Cowling
+
+
+
+
+
+AUSTRAL ENGLISH
+
+A DICTIONARY OF AUSTRALASIAN WORDS, PHRASES AND USAGES
+
+with those Aboriginal-Australian and Maori words which have
+become incorporated in the language and the commoner scientific
+words that have had their origin in Australasia
+
+by Edward E. Morris M.A., Oxon.
+
+Professor of English, French and German Languages and
+Literatures in the University of Melbourne.
+
+1898
+
+
+
+INTRODUCTION
+
+
+CONTENTS
+
+
+I.   ORIGIN OF THE WORK
+      First undertaken to help O.E.D.
+      The Standard Dictionary
+
+II.  TITLE AND SCOPE OF THE BOOK
+      Not a Slang Dictionary
+
+III. SOURCES OF NEW WORDS:--
+      1. Altered English
+      2. Words quite new to the language:--
+         (a) Aboriginal Australian
+         (b) Maori
+
+IV.  THE LAW OF HOBSON-JOBSON
+       Is Austral English a corruption?
+
+V.   CLASSIFICATION OF WORDS
+
+VI.  QUOTATIONS. THEIR PURPOSE
+
+VII. BOOKS USED AS AUTHORITIES
+
+VIII.SCIENTIFIC WORDS
+
+IX.  ASSISTANCE RECEIVED
+
+X.   ABBREVIATIONS:--
+       1. Of Scientific Names
+       2. General
+
+
+
+I. ORIGIN OF THE WORK.
+
+
+About a generation ago Mr. Matthew Arnold twitted our nation
+with the fact that "the journeyman work of literature" was much
+better done in France--the books of reference, the biographical
+dictionaries, and the translations from the classics.  He did
+not especially mention dictionaries of the language, because he
+was speaking in praise of academies, and, as far as France is
+concerned, the great achievement in that line is Littre and not
+the Academy's Dictionary.  But the reproach has now been rolled
+away--<i>nous avons change tout cela</i>--and in every branch
+to which Arnold alluded our journeyman work is quite equal to
+anything in France.
+
+It is generally allowed that a vast improvement has taken place
+in translations, whether prose or verse.  From quarter to
+quarter the <i>Dictionary of National Biography</i> continues
+its stately progress.  But the noblest monument of English
+scholarship is <i>The New English Dictionary on Historical
+Principles</i>, founded mainly on the materials collected by
+the Philological Society, edited by Dr. James Murray, and
+published at the cost of the University of Oxford.  The name
+<i>New</i> will, however, be unsuitable long before the
+Dictionary is out of date.  Its right name is the <i>Oxford
+English Dictionary</i> (`O.E.D.').  That great dictionary is
+built up out of quotations specially gathered for it from
+English books of all kinds and all periods; and Dr. Murray
+several years ago invited assistance from this end of the world
+for words and uses of words peculiar to Australasia, or to
+parts of it.  In answer to his call I began to collect; but
+instances of words must be noted as one comes across them, and
+of course they do not occur in alphabetical order.  The work
+took time, and when my parcel of quotations had grown into a
+considerable heap, it occurred to me that the collection, if a
+little further trouble were expended upon it, might first enjoy
+an independent existence.  Various friends kindly contributed
+more quotations: and this Book is the result.
+
+In January 1892, having the honour to be President of the
+Section of "Literature and the Fine Arts" at the Hobart Meeting
+of the Australasian Association for the Advancement of Science,
+I alluded to Dr. Murray's request:
+
+A body like this Section, composed of men from different parts
+of scattered colonies, might render valuable help in organising
+the work of collecting authorities for our various peculiar
+words and usages.  Twenty or thirty men and women, each
+undertaking to read certain books with the new dictionary in
+mind, and to note in a prescribed fashion what is peculiar,
+could accomplish all that is needed.  Something has been done
+in Melbourne, but the Colonies have different words and uses of
+words, and this work is of a kind which might well extend
+beyond the bounds of a single city.  At first it may seem as if
+our words were few, as if in the hundred years of Australian
+life few special usages have arisen; but a man with a
+philological turn of mind, who notes what he hears, will soon
+find the list grow.  Some philologers speak, not perhaps very
+satisfactorily, of being "at the fountains of language": we can
+all of us testify to the birth of some words within our own
+memory, but the origin of these, if not noted, will in time be
+lost.  There are many other words which the strictest cannot
+condemn as slang, though even slang, being the speech of the
+people, is not undeserving of some scientific study; words, for
+instance, which have come into the language from the
+Aborigines, and names of animals, shrubs, and flowers.  It
+might even be possible, with sufficient co-operation, to
+produce an Australian dictionary on the same lines as the
+<i>New English Dictionary</i> by way of supplement to it.
+Organisation might make the labour light, whilst for many it
+would from its very nature prove a pleasant task.
+
+These suggestions were not carried out.  Individuals sent
+quotations to Oxford, but no organisation was established to
+make the collection systematic or complete, and at the next
+meeting of the Association the Section had ceased to exist,
+or at least had doffed its literary character.
+
+At a somewhat later date, Messrs. Funk and Wagnall of New York
+invited me to join an "Advisory Committee on disputed spelling
+and pronunciation."  That firm was then preparing its
+<i>Standard Dictionary</i>, and one part of the scheme was to
+obtain opinions as to usage from various parts of the
+English-speaking world, especially from those whose function it
+is to teach the English Language.  Subsequently, at my own
+suggestion, the firm appointed me to take charge of the
+Australian terms in their Dictionary, and I forwarded a certain
+number of words and phrases in use in Australia.  But the
+accident of the letter A, for Australian, coming early in the
+alphabet gives my name a higher place than it deserves on the
+published list of those co-operating in the production of this
+<i>Standard Dictionary</i>; for with my present knowledge I see
+that my contribution was lamentably incomplete.  Moreover, I
+joined the Editorial Corps too late to be of real use.  Only
+the final proofs were sent to me, and although my corrections
+were reported to New York without delay, they arrived too late
+for any alterations to be effected before the sheets went to
+press.  This took the heart out of my work for that Dictionary.
+For its modernness, for many of its lexicographical features,
+and for its splendid illustrations, I entertain a cordial
+admiration for the book, and I greatly regret the unworthiness
+of my share in it.  It is quite evident that others had
+contributed Australasian words, and I must confess I hardly
+like to be held responsible for some of their statements.  For
+instance--
+
+ "<i>Aabec</i>.  An Australian medicinal bark said to promote
+perspiration."
+
+I have never heard of it, and my ignorance is shared by the
+greatest Australian botanist, the Baron von Mueller.
+
+"<i>Beauregarde</i>.  The Zebra grass-parrakeet of Australia.
+From F. beau, regarde.  See BEAU n. and REGARD."
+
+As a matter of fact, the name is altered out of recognition,
+but really comes from the aboriginal <i>budgery</i>, good, and
+<i>gar</i>, parrot.
+
+"<i>Imou-pine</i>.  A large New Zealand tree. . . . called
+<i>red pine</i> by the colonists and <i>rimu</i> by the
+natives."
+
+I can find no trace of the spelling "Imou."  In a circular to
+New Zealand newspapers I asked whether it was a known variant.
+The <i>New Zealand Herald</i> made answer--"He may be sure that
+the good American dictionary has made a misprint.  It was
+scarcely worth the Professor's while to take notice of mere
+examples of pakeha ignorance of Maori."
+
+"Swagman. [Slang, Austral.] 1. A dealer in cheap trinkets, etc.
+2. A swagger."
+
+In twenty-two years of residence in Australia, I have never heard
+the former sense.
+
+"<i>Taihoa</i>. [Anglo-Tasmanian.]  No hurry; wait."
+
+The word is Maori, and Maori is the language of New Zealand, not
+of Tasmania.
+
+These examples, I know, are not fair specimens of the accuracy
+of the Standard Dictionary, but they serve as indications of
+the necessity for a special book on Australasian English.
+
