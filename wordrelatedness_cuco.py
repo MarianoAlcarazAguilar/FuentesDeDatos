@@ -244,7 +244,6 @@ class WordRelate:
         content = []
         for file in os.listdir(collection_path):
             file_path = os.path.join(collection_path, file)
-            print(file_path)
             # Take care of gzipped files
             if re.match(r'^gzip', magic.from_file(file_path)):
                 with gzip.open(file_path, 'rb') as fa:
@@ -254,7 +253,7 @@ class WordRelate:
                     # Read lines and process them. (notice we are removing empty lines)
                     lines = g.readlines()
             # -----------------------------------
-            # TODO
+            #
             # - Call proc line on each line of input
             # - Make sure to add 'START' and 'END' tokens to the start and end of each sentence.
             # - Preserve only non empty lines.
@@ -265,7 +264,7 @@ class WordRelate:
             to_delete = "\n"
             lines = [re.sub(rf"[{to_delete}]+", "", str(x)).lower() for x in lines]
             lines = [f"START {x} END" for x in lines]
-            lines = [self.proc_line(x) for x in lines if len(self.proc_line(x)) > 2]
+            lines = [self.proc_line(f"START {x} END" for x in lines) for x in lines if len(self.proc_line(x)) > 2]
             # lines = [self.proc_line(rf"START {re.sub(to_delete, '', str(x)).lower()} END") for x in lines if len(self.proc_line(x)) > 2]
             content += [x for line in lines for x in line if x not in sw]
             texts.append(np.array(lines, dtype=object))
@@ -288,7 +287,7 @@ if __name__ == '__main__':
     # Check available collections
     # Esto ya funciona
     collections = os.listdir(os.path.join('data', 'text_comp', 'texts'))
-    ##print(collections)
+
     # Parse arguments
     parser = ArgumentParser()
     parser.add_argument('--collection', choices=collections)
@@ -301,7 +300,7 @@ if __name__ == '__main__':
     # Read collection argument
     collection = args.collection
     # -----------------------------------
-    # TODO
+    #
     # -----------------------------------
     # 1.- read collection 00
     # 2.- get vocabularies
