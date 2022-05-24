@@ -1,0 +1,13 @@
+review,sentiment
+neg1 pos2 neg3 pos4 neg5 pos6 pos7 pos8 pos9 pos10,positive 
+pos1 pos2 pos3 pos4 pos5 pos6 pos7 pos8 pos9 pos10,positive
+pos1 pos2 pos3 pos4 pos5 pos6 pos7 neg8 pos9 pos10,positive
+pos1 pos2 pos3 pos4 neg5 pos6 pos7 pos8 pos9 pos10,negative
+pos1 pos2 pos3 pos4 pos5 pos6 pos7 pos8 pos9 pos10,negative
+neg1 neg2 neg3 neg4 neg5 neg6 neg7 neg8 neg9 neg10,positive
+neg1 neg2 neg3 neg4 neg5 neg6 neg7 neg8 neg9 neg10,positive
+neg1 neg2 neg3 neg4 neg5 neg6 neg7 neg8 neg9 neg10,negative
+neg1 pos3 neg3 neg4 neg5 neg6 neg7 pos8 neg9 neg10,negative
+neg1 neg2 neg3 neg4 neg5 neg6 neg7 neg8 neg9 neg10,negative
+neg1 neg2 neg3 neg4 neg5 neg6 neg7 neg8 neg9 pos10,negative
+neg1 neg2 pos1 neg4 neg5 neg6 neg7 pos1 neg9 neg10,negative
