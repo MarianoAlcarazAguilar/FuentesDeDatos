@@ -2,29 +2,22 @@
 
 current_dir=$(pwd)
 
-#echo "Start again?"
-#read start
-#while [ "$start" != "y" ] && [ "$start" != "n" ]
-#do
-#    echo "Please answer: (y/n)"
-#    read start
-#done
-#if [ "$start" = "y" ]
-#then
-#  rm -r "$current_dir/wordle_env"
-#fi
+chmod 555 "$current_dir/scripts/clean_urls.sh"
+chmod 555 "$current_dir/scripts/get_words.sh"
+chmod 555 "$current_dir/scripts/get_books.py"
+chmod 555 "$current_dir/scripts/get_book_urls.py"
 
 # ----------------------------------------------
 # ASKING IF WE WANT TO MAKE THE ENVIRONMENT
 # ----------------------------------------------
 echo "Do you want to setup an environment? (y/n)"
-read set_env
+read -r set_env
 while [ "$set_env" != "y" ] && [ "$set_env" != "n" ]
 do
     echo 'ENV'
     echo "$set_env"
     echo "Please answer: (y/n)"
-    read set_env
+    read -r set_env
 done
 
 # ----------------------------------------------
@@ -37,7 +30,8 @@ then
     # ----------------------------------------------
     echo -e "Choose a location for project setup: (default: $current_dir)"
     echo -e "If you don't enter anything it will be default"
-    read new_dir
+    read -r new_dir
+    # shellcheck disable=SC2161
     while [ 1 ]
     do
         if [ -z "$new_dir" ]
@@ -47,7 +41,7 @@ then
             while [[ ! -d "$new_dir" ]]
             do
                 echo -e "The given path is wrong, please enter a valid one"
-                read new_dir
+                read -r new_dir
                 if [ -z "$new_dir" ]
                 then
                     new_dir=$current_dir
@@ -58,11 +52,11 @@ then
         # ----------------------------------------------
         # VERIFY THE DIRECTORY DOESN'T EXIST
         # ----------------------------------------------
-        if [ -d "$new_dir/wordle_env" ] 
+        if [[ -d "$new_dir/wordle_env" ]]
         then
             echo "The directory already exists, do you wish to replace it (y/n)"
-            read remove
-            if [ "$remove" = 'y' ]
+            read -r remove
+            if [[ "$remove" = 'y' ]]
             then
                 rm -r "$new_dir/wordle_env"
                 break
@@ -104,7 +98,12 @@ fi
 # GET THE URLS OF THE BOOKS TO TEST
 # ----------------------------------------
 echo -e "\n---------------------Getting the urls of the books---------------------"
-./scripts/get_book_urls.py "$new_dir/wordle_env/auxiliares"
+if [[ ! -f "$new_dir/wordle_env/auxiliares/en.txt" ]]
+then
+  ./scripts/get_book_urls.py "$new_dir/wordle_env/auxiliares"
+else
+  echo "Links had already been gotten"
+fi
 
 # ----------------------------------------
 # CLEANING THE URLS
@@ -122,18 +121,19 @@ echo -e "\n---------------------------Cleaning the urls-------------------------
 # ----------------------------------------
 echo -e "\n---------------------------Getting the books---------------------------"
 echo "Do you want to download the books?"
-read download
+echo "(first time setting env >> answer y)"
+read -r download
 while [ "$download" != "y" ] && [ "$download" != "n" ]
 do
     echo "Please answer: (y/n)"
-    read download
+    read -r download
 done
 if [ "$download" = "y" ]
 then
   # shellcheck disable=SC2002
   max_books=$(cat "$ingles" | awk 'END {print NR}')
   echo -e "\nHow many books do you want to download? (max: $max_books)"
-  read n_books
+  read -r n_books
   ./scripts/get_books.py "$n_books" "$new_dir/wordle_env/books" "$new_dir/wordle_env/links"
 fi
 
@@ -141,9 +141,30 @@ fi
 # GETTING LIST OF WORDS
 # ----------------------------------------
 echo -e "\n-------------------------Getting lists of words------------------------"
+
+# Verificamos que las listas de palabras no existan
+# Si estas existen deben ser eliminadas, debido a que el script que las crea lo hace sobreescribiendo,
+# Lo que significa que si se corre múltiples veces las palabras se repetirán más veces de las necesarias.
+if [ -f "$new_dir/wordle_env/results/en.txt" ]
+then
+  rm "$new_dir/wordle_env/results/en.txt"
+  rm "$new_dir/wordle_env/results/es.txt"
+  rm "$new_dir/wordle_env/results/fr.txt"
+fi
+
 books_folder="$new_dir/wordle_env/books"
 results="$new_dir/wordle_env/results"
-./scripts/clean_books.sh "$books_folder" "$results"
+./scripts/get_words.sh "$books_folder" "$results"
+
+# Printing total amount of words found
+results_aux="$results/*"
+for result in $results_aux
+do
+  lang=$(echo "$result" | awk -F '/' '{print $NF}')
+  lang=$(echo "$lang" | awk -F '.' '{print $1}')
+  total=$(awk 'END {print NR}' "$result")
+  echo "Total words found in $lang: $total"
+done
 
 sleep 0.3
 echo -e "\nEverything is done"

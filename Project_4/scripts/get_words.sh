@@ -8,7 +8,6 @@
 books_folder="$1/*"
 destination_folder=$2
 
-# books_folder="/home/user/Documents/FuentesDeDatos/project_4/wordle_env/books/*"
 
 # Iteramos sobre cada folder de los diferentes idiomas
 for LANGUAGE_FOLDER in $books_folder
@@ -27,14 +26,15 @@ do
     fi
   fi
   echo "Getting words in: $IDIOMA"
+
   # Ahora iteramos sobre cada libro del idioma
   lang_books="$LANGUAGE_FOLDER/*"
   for book in $lang_books
   do
-    # shellcheck disable=SC2002
-    cat "$book" | awk '{for(i=1; i<=NF; i++) {if(length($i)==5) print $i}}' >> "$destination_folder/$IDIOMA.txt"
+    awk '{for(i=1; i<=NF; i++) {if(length($i)==5) print $i}}' "$book" >> "$destination_folder/$IDIOMA.txt"
   done
-
 done
+
+
 
 

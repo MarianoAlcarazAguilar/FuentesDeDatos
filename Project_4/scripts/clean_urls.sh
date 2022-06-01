@@ -12,13 +12,12 @@ frances=$3
 destination_dir=$4
 
 
-
 echo -e "Cleaning books in english"
 sleep 0.3
-cat "$ingles" | awk -F '/' '{print $3}' > "$destination_dir/english_books.txt"
+awk -F '/' '{print $3}' "$ingles" > "$destination_dir/english_books.txt"
 echo -e "Cleaning books in spanish"
 sleep 0.3
-cat "$espanol" | awk -F '/' '{print $3}' > "$destination_dir/spanish_books.txt"
+awk -F '/' '{print $3}' "$espanol" > "$destination_dir/spanish_books.txt"
 echo -e "Cleaning books in french"
 sleep 0.3
-cat "$frances" | awk -F '/' '{print $3}' > "$destination_dir/french_books.txt"
+awk -F '/' '{print $3}' "$frances"> "$destination_dir/french_books.txt"
